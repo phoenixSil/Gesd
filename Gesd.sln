@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gesd.Api", "Sources\Gesd.Api\Gesd.Api.csproj", "{F03A63D0-50F8-474D-A81A-04ADFF40EAAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{E33102F3-C4A8-4886-94FD-0E493911E5F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gesd.Entite", "Sources\Gesd.Entite\Gesd.Entite.csproj", "{9D701045-9D90-444A-ABC7-D982D3E6E33B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F03A63D0-50F8-474D-A81A-04ADFF40EAAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03A63D0-50F8-474D-A81A-04ADFF40EAAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F03A63D0-50F8-474D-A81A-04ADFF40EAAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F03A63D0-50F8-474D-A81A-04ADFF40EAAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D701045-9D90-444A-ABC7-D982D3E6E33B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D701045-9D90-444A-ABC7-D982D3E6E33B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D701045-9D90-444A-ABC7-D982D3E6E33B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D701045-9D90-444A-ABC7-D982D3E6E33B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F03A63D0-50F8-474D-A81A-04ADFF40EAAD} = {E33102F3-C4A8-4886-94FD-0E493911E5F2}
+		{9D701045-9D90-444A-ABC7-D982D3E6E33B} = {E33102F3-C4A8-4886-94FD-0E493911E5F2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D6636B97-9511-4D31-8494-8DFCA4D81D56}
+	EndGlobalSection
+EndGlobal
