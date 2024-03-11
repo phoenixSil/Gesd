@@ -13,5 +13,6 @@ namespace Gesd.Api.Repositories.Contrats
         Task<bool> Delete(string url);
         Task<File> Get();
         Task<List<File>> GetAllMetadata();
+        Task<string> TelechargerFichier(string url);
     }
 }

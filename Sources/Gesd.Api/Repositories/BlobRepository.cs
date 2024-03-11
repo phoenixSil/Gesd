@@ -333,6 +333,24 @@ namespace Gesd.Api.Repositories
             return fichiers;
         }
 
+        public async Task<string> TelechargerFichier(string url)
+        {
+            // Génère un nom de fichier temporaire pour stocker le contenu téléchargé
+            var destinationFilePath = Path.GetTempFileName();
+
+            // Parse le nom du conteneur et le nom du blob à partir de l'URL du blob
+            var blobUri = new Uri(url);
+            var blobName = string.Concat(blobUri.Segments[2..]);
+
+            // Initialise le client BlobServiceClient avec la chaîne de connexion
+            var blobClient = BlobContainerClient.GetBlobClient(blobName);
+
+            // Télécharge le contenu du blob dans le fichier spécifié
+            await blobClient.DownloadToAsync(destinationFilePath);
+
+            return destinationFilePath;
+        }
+
 
         #endregion PRIVATE FUNCTION
     }

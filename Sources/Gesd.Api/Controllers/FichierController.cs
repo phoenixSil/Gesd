@@ -4,6 +4,7 @@ using System.Net;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Azure.Storage.Blobs;
 
 namespace Gesd.Api.Controllers
 {
@@ -53,6 +54,30 @@ namespace Gesd.Api.Controllers
                 var response = await _fichierService.Get().ConfigureAwait(false);
                 var listFichiers = response.Data;
                 return StatusCode(response.StatusCode, listFichiers);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"une erreur est survenue dans lors de le la lecture de fichier {ex.Message}");
+                return StatusCode((int)HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpGet("telecharger")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> Telecharger(string blobUrl)
+        {
+            try
+            {
+                var destinationFilePath = (await _fichierService.Telecharger(blobUrl).ConfigureAwait(false)).Data;
+                // Lit le contenu du fichier dans un tableau de bytes
+                byte[] fileBytes = await System.IO.File.ReadAllBytesAsync(destinationFilePath);
+
+                // Supprime le fichier temporaire
+                System.IO.File.Delete(destinationFilePath);
+
+                // Retourne le contenu du fichier en tant que réponse HTTP
+                return File(fileBytes, "application/octet-stream", "downloaded_file");
             }
             catch (Exception ex)
             {

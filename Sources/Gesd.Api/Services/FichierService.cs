@@ -1,6 +1,8 @@
 ﻿using System.Net;
 
 using AutoMapper;
+using Azure.Storage.Blobs;
+
 using Gesd.Api.Dtos;
 using Gesd.Api.Features.Commands;
 using Gesd.Api.Services.Contrats;
@@ -118,7 +120,14 @@ namespace Gesd.Api.Services
         {
             throw new NotImplementedException();
         }
-        
 
+        public async Task<ApiResponse<string>> Telecharger(string blobUrl)
+        {
+            var response = await _sender.Send(new TelechargerFichierCmd {
+                Url = blobUrl
+            }).ConfigureAwait(false);
+
+            return (ApiResponse<string>)response;
+        }
     }
 }

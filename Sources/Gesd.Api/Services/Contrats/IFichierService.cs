@@ -9,5 +9,6 @@ namespace Gesd.Api.Services.Contrats
         Task<ApiResponse<FileAddedDto>?> AddWithoutDataBase(string category, string type, IFormFile file);
         Task<ApiResponse<bool>> Delete(Guid id);
         Task<ApiResponse<List<FileDto>>> Get();
+        Task<ApiResponse<string>> Telecharger(string blobUrl);
     }
 }
